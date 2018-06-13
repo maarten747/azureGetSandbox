@@ -16,11 +16,7 @@ Sandbox.define('/orders/simulations', 'POST', function(req, res){
 
  
 
-// A basic route returning a canned response
-Sandbox.define('/hello', 'get', function(req, res) {
-    // send 'Hello world' response
-    res.send('Hello worldddd');
-});
+
 
 
 // Using stateful behaviour to simulate creating users
