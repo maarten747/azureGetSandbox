@@ -8,7 +8,7 @@ var searchStock = require('i08bStock.js');
 Sandbox.define('/stock', 'POST', function(req, res){
     
     console.log('MDS in search stock call');
-    return res.json( searchStock.searchStock(req.body) );
+    return res.json(searchStock.searchStock(req.body) );
 });
 
 
