@@ -11,7 +11,7 @@ exports.searchStock = function  searchStock(requestBody){
                             Arrivals:[
                                         {
                                             "Date": "2020-11-02T00:00:00",
-                                            "Quantity": 599
+                                            "Quantity": 9999
                                         }
                                     ]
                         };
