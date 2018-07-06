@@ -15,10 +15,13 @@ exports.searchStock = function  searchStock(requestBody){
                                         }
                                     ]
                         };
-                        
+        
+        // ###############  START   Define your own mocked Stock Quantities here   ############### //
         if(sku == '3661123009775'){
             dataElement.Quantity = 25;
         }
+        
+        // ###############  END   Define your own mocked Stock Quantities here   ############### //
 
         data.push(dataElement);
     });
