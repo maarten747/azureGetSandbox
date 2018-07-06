@@ -1,9 +1,4 @@
-exports.searchStock = function (requestBody){
-    return searchStock(201, true, generateItems(requestBody), []);
-}
-
-
-function searchStock(requestBody){
+exports.searchStock = function  searchStock(requestBody){
 
     var response = generateAzureHeader(200, "OK", null);
     var data = [];
