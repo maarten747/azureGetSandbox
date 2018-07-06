@@ -1,55 +1,61 @@
-exports.createHeaderOrderJson = function (requestBody){
-    return createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []);
+exports.searchStock = function (requestBody){
+    return searchStock(201, true, generateItems(requestBody), []);
 }
 
-function generateItems(requestBody){
-    var itemsToReturn = [];
-    var itemToReturn = {};
 
-        for(i=0; i<requestBody.Items.length; i++){
-            var inputItem = requestBody.Items[i];
+function searchStock(requestBody){
 
-            itemToReturn.OrderLineId = "100"+i;
-            itemToReturn.ProductId = null;
-            itemToReturn.EAN = inputItem.EAN;
-            itemToReturn.RequestedQuantity = inputItem.Quantity;
-            itemToReturn.DeliveredQuantity = 10;
-            itemToReturn.EarliestDeliveryDate = "2018-06-18T00:00:00";
-            itemToReturn.UnitPrice = 100;
-            itemToReturn.Volume = 20;
-            itemToReturn.Warnings = [];
-            itemToReturn.Errors = [];
+    var response = generateAzureHeader(200, "OK", null);
+    var data = [];
 
-            itemsToReturn[i] = itemToReturn;
-        }
-        return itemsToReturn;
+    // loop over all SKU's in the request
+    requestBody.forEach(function(sku){
+        var dataElement = {
+                            Product: generateAzureProduct(sku),
+                            Quantity: 10000,
+                            Arrivals:[
+                                        {
+                                            "Date": "2020-11-02T00:00:00",
+                                            "Quantity": 599
+                                        }
+                                    ]
+                        };
+
+        data.push(dataElement);
+    });
+
+    _.extend(response,{ Data: data});
+
+    return response;
+
 }
 
-function createHeaderOrderWithCodeJson(code, isSuccess, items, errors){
-    var jsonResponse = {
-        code:201,
-        status:"ok",
-        message:null,
-        Data:{
-                OrderId:"GS1234",
-                PurchaseOrderNumber: "string",
-                TotalPrice: 1000.0,
-                TotalVAT: 210.0,
-                TotalFreightCos: 0.0,
-                MinimumOrderValue: 0.0,
-                CashDiscount: 0.0,
-                IsSuccess: false,
-                Items: {}
-            },
-        Warnings:[],
-        Errors:[]
-    };
+function generateAzureProduct(sku, material, colorCode){
 
-    jsonResponse.code = code;
-    jsonResponse.Data.Items = items;
-    jsonResponse.Data.IsSuccess = isSuccess;
-    jsonResponse.Data.Errors = errors;
-    
-    return jsonResponse;
+    var product = {
+                        MaterialCode: material,
+                        ColorCode: colorCode,
+                        IsSparePart: false
+                    }
+    if(sku.length == 7 && sku.substring(1,1) == 1){
+        _.extend(product, {
+                            Id: sku,
+                            MaterialCode: sku,
+                            IsSparePart: true
+                        });
+    }
+    else{
+        _.extend(product, {
+                            EAN: sku
+                        });
+    }
+    return product;
 }
- 
+
+function generateAzureHeader(code, status, message){
+    return {
+                Code: code,
+                Status: status,
+                Message: message
+            };
+}
