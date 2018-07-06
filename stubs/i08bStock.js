@@ -15,6 +15,10 @@ exports.searchStock = function  searchStock(requestBody){
                                         }
                                     ]
                         };
+                        
+        if(sku == '3661123009775'){
+            dataElement.Quantity = 25;
+        }
 
         data.push(dataElement);
     });
