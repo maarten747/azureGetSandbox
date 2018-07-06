@@ -1,6 +1,22 @@
 /**
- * My API Sandbox
- * 
+ * Stock
+ */
+
+var orderSimulate = require('i08bStock.js');
+ 
+// Overwriting the Azure Order Simulate
+Sandbox.define('/stock', 'POST', function(req, res){
+    
+    console.log('MDS in search stock call');
+    return res.json( orderSimulate.createHeaderOrderJson(req.body) );
+});
+
+
+
+
+ 
+ /**
+ * Order Simulate
  */
 
 var orderSimulate = require('i05OrderSimulate.js');
