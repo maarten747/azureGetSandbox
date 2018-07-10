@@ -39,7 +39,7 @@ function generateAzureProduct(sku, material, colorCode){
                         ColorCode: colorCode,
                         IsSparePart: false
                     }
-    if(sku.length == 7 && sku.substring(1,1) == 1){
+    if(sku.length == 7 && sku.substring(0,1) == 1){
         _.extend(product, {
                             Id: sku,
                             MaterialCode: sku,
