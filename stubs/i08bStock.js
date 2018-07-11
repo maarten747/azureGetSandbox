@@ -7,7 +7,7 @@ exports.searchStock = function  searchStock(requestBody){
     requestBody.forEach(function(sku){
         var dataElement = {
                             Product: generateAzureProduct(sku),
-                            Quantity: 50,
+                            Quantity: 1000,
                             Arrivals:[
                                         {
                                             "Date": "2020-11-02T00:00:00",
@@ -17,8 +17,8 @@ exports.searchStock = function  searchStock(requestBody){
                         };
         
         // ###############  START   Define your own mocked Stock Quantities here   ############### //
-        if(sku == '3661123009775'){
-            dataElement.Quantity = 25;
+        if(sku == '1011379'){
+            dataElement.Quantity = 100;
         }
         
         // ###############  END   Define your own mocked Stock Quantities here   ############### //
