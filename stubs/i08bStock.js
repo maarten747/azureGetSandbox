@@ -18,7 +18,7 @@ exports.searchStock = function  searchStock(requestBody){
         
         // ###############  START   Define your own mocked Stock Quantities here   ############### //
         if(sku == '1011379' ){
-            dataElement.Quantity = 100;
+            dataElement.Quantity = 0;
         }
         if(sku == '1000648' ){
             dataElement.Quantity = 20;
