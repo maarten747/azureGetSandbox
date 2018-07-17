@@ -21,7 +21,7 @@ exports.searchStock = function  searchStock(requestBody){
             dataElement.Quantity = 100;
         }
         if(sku == '1000648' ){
-            dataElement.Quantity = 20;
+            dataElement.Quantity = 0;
         }
         
         
