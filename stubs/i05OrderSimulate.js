@@ -1,5 +1,6 @@
 exports.createHeaderOrderJson = function (requestBody){
-    return createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []);
+    //return createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []);
+    return setTimeout(createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []), 5000);
     //return {"Code":500,"Status":"FAIL","Message":"An error has occurred.\r\n\r\n\r\n","Data":null};
 }
 
@@ -14,7 +15,7 @@ function generateItems(requestBody){
             itemToReturn.ProductId = null;
             itemToReturn.EAN = inputItem.EAN;
             itemToReturn.RequestedQuantity = inputItem.Quantity;
-            itemToReturn.DeliveredQuantity = 16;
+            itemToReturn.DeliveredQuantity = 25;
             itemToReturn.EarliestDeliveryDate = "2018-06-18T00:00:00";
             itemToReturn.UnitPrice = 100;
             itemToReturn.Volume = 20;
