@@ -35,7 +35,7 @@ function createHeaderOrderWithCodeJson(code, isSuccess, items, errors){
         status:"ok",
         message:null,
         Data:{
-                OrderId:"GS1234",
+                OrderId:"GS1234" + Math.floor((Math.random() * 100000) + 1),
                 PurchaseOrderNumber: "string",
                 TotalPrice: 1000.0,
                 TotalVAT: 210.0,
