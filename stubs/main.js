@@ -4,7 +4,7 @@
 
 var searchStock = require('i08bStock.js');
  
-// Overwriting the Azure Order Simulate
+// Overwriting the Azure Stock
 Sandbox.define('/stock', 'POST', function(req, res){
     
     console.log('MDS in search stock call');
@@ -16,13 +16,20 @@ Sandbox.define('/stock', 'POST', function(req, res){
 
  
  /**
- * Order Simulate
+ * Order Simulate/Create
  */
 
 var orderSimulate = require('i05OrderSimulate.js');
  
 // Overwriting the Azure Order Simulate
 Sandbox.define('/orders/simulations', 'POST', function(req, res){
+    
+    console.log('MDS test console');
+    return res.json( orderSimulate.createHeaderOrderJson(req.body) );
+});
+
+// Overwriting the Azure Order Create
+Sandbox.define('/orders', 'POST', function(req, res){
     
     console.log('MDS test console');
     return res.json( orderSimulate.createHeaderOrderJson(req.body) );
