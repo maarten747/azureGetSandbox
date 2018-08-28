@@ -25,7 +25,7 @@ var orderSimulate = require('i05OrderSimulate.js');
 Sandbox.define('/orders/simulations', 'POST', function(req, res){
     
     console.log('MDS test console');
-    return res.json( orderSimulate.createHeaderOrderJson(req.body) );
+    return setTimeout(res.json( orderSimulate.createHeaderOrderJson(req.body) ), 5000);
 });
 
 // Overwriting the Azure Order Create
