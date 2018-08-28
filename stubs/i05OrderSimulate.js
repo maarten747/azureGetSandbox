@@ -14,7 +14,7 @@ function generateItems(requestBody){
             itemToReturn.ProductId = null;
             itemToReturn.EAN = inputItem.EAN;
             itemToReturn.RequestedQuantity = inputItem.Quantity;
-            itemToReturn.DeliveredQuantity = 10;
+            itemToReturn.DeliveredQuantity = 16;
             itemToReturn.EarliestDeliveryDate = "2018-06-18T00:00:00";
             itemToReturn.UnitPrice = 100;
             itemToReturn.Volume = 20;
