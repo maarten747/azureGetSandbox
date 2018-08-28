@@ -6,9 +6,11 @@ exports.createHeaderOrderJson = function (requestBody){
 
 function generateItems(requestBody){
     var itemsToReturn = [];
-    var itemToReturn = {};
+    
 
         for(i=0; i<requestBody.Items.length; i++){
+            var itemToReturn = {};
+            
             var inputItem = requestBody.Items[i];
 
             itemToReturn.OrderLineId = "100"+i;
