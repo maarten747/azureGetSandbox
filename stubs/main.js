@@ -26,10 +26,6 @@ Sandbox.define('/orders/simulations', 'POST', function(req, res){
     
     console.log('MDS test console');
     
-    // too long
-    for(i=0; i<814147483; i++){
-        
-    }
     
     return res.json( orderSimulate.createHeaderOrderJson(req.body) );
 });
