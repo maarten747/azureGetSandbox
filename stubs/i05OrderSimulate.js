@@ -43,6 +43,7 @@ function createHeaderOrderWithCodeJson(code, isSuccess, items, errors){
                 MinimumOrderValue: 0.0,
                 CashDiscount: 0.0,
                 IsSuccess: false,
+                NewFieldToTest:"hello!",
                 Items: {}
             },
         Warnings:[],
