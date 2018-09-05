@@ -7,12 +7,27 @@ var searchStock = require('i08bStock.js');
 // Overwriting the Azure Stock
 Sandbox.define('/stock', 'POST', function(req, res){
     
-    for(j=0; j<20;j++){
-        // 5 seconds
-        for(i=0; i<14147483; i++){
-            
-        }
+    // 5 seconds
+    for(i=0; i<14147483; i++){
+        
     }
+    // 5 seconds
+    for(i=0; i<14147483; i++){
+        
+    }
+    // 5 seconds
+    for(i=0; i<14147483; i++){
+        
+    }
+    // 5 seconds
+    for(i=0; i<14147483; i++){
+        
+    }
+    // 5 seconds
+    for(i=0; i<14147483; i++){
+        
+    }
+    
     
     console.log('MDS in search stock call');
     return res.json(searchStock.searchStock(req.body) );
