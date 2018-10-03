@@ -2,13 +2,25 @@
  * Stock
  */
 
-var searchStock = require('i08bStock.js');
+var productInfoCalls = require('productInfoCalls.js');
  
 // Overwriting the Azure Stock
 Sandbox.define('/stock', 'POST', function(req, res){
     
     console.log('MDS in search stock call');
-    return res.json(searchStock.searchStock(req.body) );
+    return res.json(productInfoCalls.searchStock(req.body) );
+});
+
+
+/**
+ * Listings
+ */
+ 
+// Overwriting the Azure POST Listings
+Sandbox.define('/products/search', 'POST', function(req, res){
+    
+    console.log('MDS in POST Listings call');
+    return res.json(productInfoCalls.getMultipleBasicProducts(req.body) );
 });
 
 
@@ -43,18 +55,7 @@ Sandbox.define('/orders', 'POST', function(req, res){
     return res.json( orderSimulate.createHeaderOrderJson(req.body) );
 });
 
-/**
- * Listings
- */
 
-var getMultipleBasicProducts = require('i04bGetMultipleBasicProducts.js');
- 
-// Overwriting the Azure Stock
-Sandbox.define('/products/search', 'POST', function(req, res){
-    
-    console.log('MDS in POST Listings call');
-    return res.json(getMultipleBasicProducts.getMultipleBasicProducts(req.body) );
-});
  
  
 
