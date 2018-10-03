@@ -37,6 +37,27 @@ exports.searchStock = function  searchStock(requestBody){
 
 }
 
+
+exports.getMultipleBasicProducts = function getMultipleBasicProducts(requestBody){
+    
+    var response = generateAzureHeader(200, "OK", null);
+    var data = [];
+
+    // loop over all SKU's in the request
+    requestBody.forEach(function(sku){
+        var dataElement = {
+                            Product: generateAzureProduct(sku),
+                        };
+
+        data.push(dataElement);
+    });
+
+    _.extend(response,{ Data: data});
+
+    return response;
+    
+}
+
 function generateAzureProduct(sku, material, colorCode){
 
     var product = {
