@@ -42,6 +42,19 @@ Sandbox.define('/orders', 'POST', function(req, res){
     
     return res.json( orderSimulate.createHeaderOrderJson(req.body) );
 });
+
+/**
+ * Listings
+ */
+
+var getMultipleBasicProducts = require('i04bGetMultipleBasicProducts.js');
+ 
+// Overwriting the Azure Stock
+Sandbox.define('/products/search', 'POST', function(req, res){
+    
+    console.log('MDS in POST Listings call');
+    return res.json(getMultipleBasicProducts.getMultipleBasicProducts(req.body) );
+});
  
  
 
