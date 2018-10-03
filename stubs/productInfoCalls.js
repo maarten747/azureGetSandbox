@@ -45,10 +45,8 @@ exports.getMultipleBasicProducts = function getMultipleBasicProducts(requestBody
 
     // loop over all SKU's in the request
     requestBody.forEach(function(sku){
-        var dataElement = {
-                            Product: generateAzureProduct(sku),
-                        };
-
+        var dataElement = generateAzureProduct(sku);
+                        
         data.push(dataElement);
     });
 
