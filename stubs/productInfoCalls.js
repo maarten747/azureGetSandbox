@@ -7,7 +7,7 @@ exports.searchStock = function  searchStock(requestBody){
     requestBody.forEach(function(sku){
         var dataElement = {
                             Product: generateAzureProduct(sku),
-                            Quantity: 0,
+                            Quantity: 20,
                             Arrivals:[
                                         {
                                             "Date": "2018-11-02T00:00:00",
