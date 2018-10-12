@@ -1,5 +1,5 @@
 exports.createHeaderOrderJson = function (requestBody){
-    return createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []);
+    return createHeaderOrderWithCodeJson(201, true, requestBody, []);
     //return setTimeout(createHeaderOrderWithCodeJson(201, true, generateItems(requestBody), []), 5000);
     //return {"Code":500,"Status":"FAIL","Message":"An error has occurred.\r\n\r\n\r\n","Data":null};
 }
@@ -29,14 +29,14 @@ function generateItems(requestBody){
         return itemsToReturn;
 }
 
-function createHeaderOrderWithCodeJson(code, isSuccess, items, errors){
+function createHeaderOrderWithCodeJson(code, isSuccess, requestBody, errors){
     var jsonResponse = {
         code:201,
         status:"ok",
         message:null,
         Data:{
                 OrderId:"GS1234" + Math.floor((Math.random() * 100000) + 1),
-                PurchaseOrderNumber: "string",
+                PurchaseOrderNumber: requestBody.PurchaseOrderNumber,
                 TotalPrice: 1000.0,
                 TotalVAT: 210.0,
                 TotalFreightCos: 0.0,
@@ -51,7 +51,7 @@ function createHeaderOrderWithCodeJson(code, isSuccess, items, errors){
     };
 
     jsonResponse.code = code;
-    jsonResponse.Data.Items = items;
+    jsonResponse.Data.Items = generateItems(requestBody);
     jsonResponse.Data.IsSuccess = isSuccess;
     jsonResponse.Data.Errors = errors;
     
