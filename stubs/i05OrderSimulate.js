@@ -37,6 +37,7 @@ function createHeaderOrderWithCodeJson(code, isSuccess, requestBody, errors){
         Data:{
                 OrderId:"GS1234" + Math.floor((Math.random() * 100000) + 1),
                 PurchaseOrderNumber: requestBody.PurchaseOrderNumber,
+                OrderReference: requestBody.OrderReference,
                 TotalPrice: 1000.0,
                 TotalVAT: 210.0,
                 TotalFreightCos: 0.0,
