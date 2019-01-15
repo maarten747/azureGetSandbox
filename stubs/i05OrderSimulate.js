@@ -20,7 +20,7 @@ function generateItems(requestBody){
             itemToReturn.DeliveredQuantity = 25;
             itemToReturn.EarliestDeliveryDate = "2018-06-18T00:00:00";
             itemToReturn.UnitPrice = 100;
-            itemToReturn.Volume = 20;
+            itemToReturn.Volume = 30;
             itemToReturn.Warnings = [];
             itemToReturn.Errors = [];
 
