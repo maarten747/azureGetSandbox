@@ -76,7 +76,7 @@ Sandbox.define('/users', 'POST', function(req, res) {
     // persist user by adding to the state object
     state.users.push(req.body);
 
-    return res.json({status: "ok"});
+    return res.json(_.extend({status: "ok"},{requestBody:req.body}));
 });
 
 // Using stateful behaviour to simulate getting all users
